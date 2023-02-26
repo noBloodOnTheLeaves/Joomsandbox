@@ -29,7 +29,7 @@ services:
     links:
       - joomladb:mysql
     ports:
-      - "81:80"
+      - "${PHP_ADMIN_PORT:-81}:80"
     environment:
       - PMA_HOST=mysql
 networks:
