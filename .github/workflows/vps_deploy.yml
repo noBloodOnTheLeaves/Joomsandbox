@@ -26,6 +26,9 @@ jobs:
           
       - name: pwd
         run: pwd 
+        
+      - name: whoami
+        run: whoami 
 
       - name: Run build
         run: docker-compose up -d
