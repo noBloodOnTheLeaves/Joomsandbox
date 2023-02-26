@@ -28,4 +28,4 @@ jobs:
         run: docker-compose up -d
           
       - name: set permissions
-        run: chown -R www-data:www-data /var/www/html   
+        run: chown -R www-data:www-data /home/git-actions/actions-runner/_work/Joomsandbox/Joomsandbox   
