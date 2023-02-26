@@ -12,7 +12,7 @@ services:
     environment:
       JOOMLA_DB_HOST: joomladb:3306
       JOOMLA_BD_USER: root
-      JOOMLA_DB_PASSWORD: example
+      JOOMLA_DB_PASSWORD: ${JOOMLA_DB_PASSWORD:pasword}
     networks:
       - joomla
 
@@ -21,7 +21,7 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: joomla_sandbox
-      MYSQL_ROOT_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: ${JOOMLA_DB_PASSWORD:pasword}
     networks:
       - joomla
   phpmyadmin:
