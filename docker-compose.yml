@@ -7,12 +7,12 @@ services:
     links:
       - joomladb:mysql
     ports:
-      - "80:80"
+      - "${PORT:-80}:80"
     volumes: ["./cms:/var/www/html"]
     environment:
       JOOMLA_DB_HOST: joomladb:3306
       JOOMLA_BD_USER: root
-      JOOMLA_DB_PASSWORD: ${JOOMLA_DB_PASSWORD:pasword}
+      JOOMLA_DB_PASSWORD: "${JOOMLA_DB_PASSWORD:-pasword}"
     networks:
       - joomla
 
@@ -21,7 +21,7 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: joomla_sandbox
-      MYSQL_ROOT_PASSWORD: ${JOOMLA_DB_PASSWORD:pasword}
+      MYSQL_ROOT_PASSWORD: "${JOOMLA_DB_PASSWORD:-pasword}"
     networks:
       - joomla
   phpmyadmin:
