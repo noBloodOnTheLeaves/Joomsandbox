@@ -23,12 +23,6 @@ jobs:
           echo 'PORT=${{ secrets.PORT }}' > .env
           echo 'JOOMLA_DB_PASSWORD=${{ secrets.JOOMLA_DB_PASSWORD }}' >> .env
           echo 'PHP_ADMIN_PORT=${{ secrets.PHP_ADMIN_PORT }}' >> .env
-          
-      - name: pwd
-        run: pwd 
         
-      - name: whoami
-        run: whoami 
-
       - name: Run build
         run: docker-compose up -d
