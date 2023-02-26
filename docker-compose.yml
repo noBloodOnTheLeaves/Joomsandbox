@@ -1,0 +1,38 @@
+version: '3.1'
+
+services:
+  joomla:
+    image: joomla
+    restart: always
+    links:
+      - joomladb:mysql
+    ports:
+      - "80:80"
+    volumes: ["./cms:/var/www/html"]
+    environment:
+      JOOMLA_DB_HOST: joomladb:3306
+      JOOMLA_BD_USER: root
+      JOOMLA_DB_PASSWORD: example
+    networks:
+      - joomla
+
+  joomladb:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: joomla_sandbox
+      MYSQL_ROOT_PASSWORD: example
+    networks:
+      - joomla
+  phpmyadmin:
+    image: phpmyadmin
+    links:
+      - joomladb:mysql
+    ports:
+      - "81:80"
+    environment:
+      - PMA_HOST=mysql
+networks:
+  joomla:
+
+
