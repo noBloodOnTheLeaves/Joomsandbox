@@ -26,6 +26,3 @@ jobs:
 
       - name: Run build
         run: docker-compose up -d
-          
-      - name: set permissions
-        run: chown -R www-data:www-data /home/git-actions/actions-runner/_work/Joomsandbox/Joomsandbox   
