@@ -25,4 +25,6 @@ jobs:
           echo 'PHP_ADMIN_PORT=${{ secrets.PHP_ADMIN_PORT }}' > .env
 
       - name: Run build
-        run: docker-compose down and up
+        run: |
+          docker-compose down
+          docker-compose up -d
