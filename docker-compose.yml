@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3.3'
 
 services:
   joomla:
@@ -39,6 +39,5 @@ networks:
     internal: true
   ingress_default:
     external: true
-    name: ingress_default
 
 
