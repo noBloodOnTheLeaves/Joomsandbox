@@ -2,6 +2,7 @@ version: '3.1'
 
 services:
   joomla:
+    container_name: 'joomsandbox'
     image: joomla
     restart: always
     links:
@@ -15,6 +16,7 @@ services:
       JOOMLA_DB_PASSWORD: "${JOOMLA_DB_PASSWORD:-pasword}"
     networks:
       - joomla
+      - ingress_default
 
   joomladb:
     image: mysql:5.7
