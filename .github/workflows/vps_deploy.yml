@@ -28,3 +28,6 @@ jobs:
 
       - name: Run build
         run: docker-compose up -d
+
+      - name: permission setup
+        run: chown -R www-data:www-data $(pwd)
