@@ -16,6 +16,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: clean
+        run: docker-compose down
       - uses: actions/checkout@master
 
       - name: Create .env
@@ -25,6 +27,4 @@ jobs:
           echo 'PHP_ADMIN_PORT=${{ secrets.PHP_ADMIN_PORT }}' >> .env
 
       - name: Run build
-        run: |
-            docker-compose down
-            docker-compose up -d
+        run: docker-compose up -d
