@@ -26,9 +26,5 @@ jobs:
 
       - name: Run build
         run: |
-            whoami
-            CDIR=$(pwd)
-            echo $CDIR
-            docker ps -aqf "name=$container" 
-            echo $container
+            docker-compose down
             docker-compose up -d
