@@ -30,4 +30,4 @@ jobs:
         run: docker-compose up -d
 
       - name: permission setup
-        run: chown -R www-data:www-data $(pwd)
+        run: chmod -R 777 $(pwd)
