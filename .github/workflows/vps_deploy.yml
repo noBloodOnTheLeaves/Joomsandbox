@@ -26,9 +26,9 @@ jobs:
           echo 'JOOMLA_DB_PASSWORD=${{ secrets.JOOMLA_DB_PASSWORD }}' >> .env
           echo 'PHP_ADMIN_PORT=${{ secrets.PHP_ADMIN_PORT }}' >> .env
 
-      - name: permission setup
-        run: chown -R www-data:www-data /home/git-actions/actions-runner/_work
-
       - name: Run build
         run: docker-compose up -d
 
+      - name: permission setup
+        run: |
+          docker exec joomsandbox bash chmod -R 777 /var/www/html
