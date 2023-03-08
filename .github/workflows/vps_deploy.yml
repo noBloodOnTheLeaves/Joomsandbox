@@ -30,4 +30,5 @@ jobs:
         run: docker-compose up -d
 
       - name: permission setup
-        run: chmod -R 777 $(pwd)
+        run: chmod -R 777 /home/git-actions/actions-runner/_work
+
