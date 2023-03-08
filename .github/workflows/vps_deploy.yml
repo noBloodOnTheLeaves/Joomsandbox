@@ -6,7 +6,7 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-    
+
 jobs:
   # This workflow contains a single job called "build"
   build:
@@ -17,12 +17,18 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@master
-      
+
       - name: Create .env
         run: |
           echo 'PORT=${{ secrets.PORT }}' > .env
           echo 'JOOMLA_DB_PASSWORD=${{ secrets.JOOMLA_DB_PASSWORD }}' >> .env
           echo 'PHP_ADMIN_PORT=${{ secrets.PHP_ADMIN_PORT }}' >> .env
-        
+
       - name: Run build
-        run: docker-compose up -d
+        run: |
+            whoami
+            CDIR=$(pwd)
+            echo $CDIR
+            $(docker ps -aqf "name=$container") 
+            echo $container
+            docker-compose up -d
