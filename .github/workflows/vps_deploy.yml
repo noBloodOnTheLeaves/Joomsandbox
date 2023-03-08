@@ -30,6 +30,3 @@ jobs:
       - name: Run build
         run: docker-compose up -d
 
-      - name: permission setup
-        run: |
-          docker exec joomsandbox chmod -R 777 /var/www/html
