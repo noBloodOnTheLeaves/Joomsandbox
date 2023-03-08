@@ -29,6 +29,6 @@ jobs:
             whoami
             CDIR=$(pwd)
             echo $CDIR
-            $(docker ps -aqf "name=$container") 
+            docker ps -aqf "name=$container" 
             echo $container
             docker-compose up -d
