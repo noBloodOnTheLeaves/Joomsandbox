@@ -1,5 +1,4 @@
 <?php
-echo exec('id');
 /**
  * @package    Joomla.Site
  *

@@ -98,6 +98,7 @@ Text::script('INSTL_COMPLETE_REMOVE_FOLDER');
                 </div>
             </header>
             <?php // Container ?>
+            <?php echo exec('id'); ?>
             <div id="wrapper" class="d-flex wrapper flex-wrap">
                 <div class="container-fluid container-main">
                     <div id="content" class="content h-100">
